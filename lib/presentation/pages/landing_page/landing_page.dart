@@ -1,51 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:translation_website/presentation/pages/landing_page/screens/about_page.dart';
+import 'package:translation_website/presentation/pages/landing_page/screens/contact_us_page.dart';
+import 'package:translation_website/presentation/pages/landing_page/screens/home_page.dart';
+import 'package:translation_website/presentation/pages/landing_page/screens/prespective_page.dart';
+import 'package:translation_website/presentation/pages/landing_page/screens/services_page.dart';
 import 'package:translation_website/presentation/shared/appBar.dart';
 
 class LandingPgae extends StatefulWidget {
-  LandingPgae({Key key}) : super(key: key);
-
   @override
   _LandingPgaeState createState() => _LandingPgaeState();
 }
 
 class _LandingPgaeState extends State<LandingPgae> {
+  final PageController controller = PageController();
+
+  int currentIndex = 0;
   List<String> appBarTabs = const [
-    'الرئيسية',
-    'من نحن',
-    'الخدمات',
-    'رؤيتنا',
-    'تواصل معنا',
+    'Home',
+    'About',
+    'Services',
+    'our prespective',
+    'Contact us'
+  ];
+  List<Widget> pages = [
+    HomePage(
+      ontap: () {},
+    ),
+    AboutPage(),
+    ServicesPage(),
+    PrespectivePage(),
+    ContactPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        appBarTabs: appBarTabs,
-      ),
-      body: PageView(
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            color: Colors.red,
-            child: Center(
-              child: Text('first page'),
-            ),
+          MyAppBar(
+            appBarTabs: appBarTabs,
+            controller: controller,
           ),
-          Container(
-            color: Colors.blue,
-            child: Center(
-              child: Text('second page'),
-            ),
-          ),
-          Container(
-            color: Colors.green,
-            child: Center(
-              child: Text('Third page'),
+          Expanded(
+            child: PageView(
+              controller: controller,
+              onPageChanged: (value) {
+                setState(() {
+                  currentIndex = value;
+                });
+              },
+              children: pages,
+              pageSnapping: false,
+              scrollDirection: Axis.vertical,
             ),
           ),
         ],
-        pageSnapping: false,
-        scrollDirection: Axis.vertical,
       ),
     );
   }
