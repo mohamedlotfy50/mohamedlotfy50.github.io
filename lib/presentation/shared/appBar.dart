@@ -8,17 +8,17 @@ class MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      height: 65,
+      color: Color(0XFF0F0E47),
+      height: 75,
       padding: EdgeInsets.symmetric(horizontal: 30),
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.center,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.white,
               ),
               SizedBox(
                 width: 10,
@@ -26,9 +26,9 @@ class MyAppBar extends StatelessWidget {
               Text(
                 'Logo',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white),
               ),
             ],
           ),
@@ -48,13 +48,13 @@ class MyAppBar extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(
                         left: index == 0 ? 0 : 10,
-                        right: index == appBarTabs.length - 1 ? 0 : 10,
-                        top: 10,
-                        bottom: 10),
+                        right: index == 4 ? 0 : 20,
+                        top: 20),
                     child: Text(
                       appBarTabs[index],
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
+                        color: Colors.white,
                         fontSize: 18,
                       ),
                     ),

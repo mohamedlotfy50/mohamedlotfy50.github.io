@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                       width: 200,
                       height: 50,
                       child: RaisedButton(
-                        color: Colors.black,
+                        color: Color(0XFF0F0E47),
                         onPressed: ontap,
                         child: Text(
                           'Contatc us now',

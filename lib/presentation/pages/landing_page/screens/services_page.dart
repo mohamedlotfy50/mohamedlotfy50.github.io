@@ -6,7 +6,7 @@ class ServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink,
+      color: Color(0XFF746FFF),
       child: Center(
         child: Text('Services'),
       ),

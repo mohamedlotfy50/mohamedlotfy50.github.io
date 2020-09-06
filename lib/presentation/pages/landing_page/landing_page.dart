@@ -19,7 +19,7 @@ class _LandingPgaeState extends State<LandingPgae> {
     'Home',
     'About',
     'Services',
-    'our prespective',
+    'Pricing',
     'Contact us'
   ];
   List<Widget> pages = [
