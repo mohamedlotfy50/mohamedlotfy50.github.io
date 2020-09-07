@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:translation_website/presentation/pages/landing_page/widgets/my_input_field.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({Key key}) : super(key: key);
@@ -15,10 +16,77 @@ class ContactPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 35),
               child: Row(
                 children: [
-                  Expanded(child: Image.asset('images/contact.png')),
                   Expanded(
-                    child: Container(),
+                    child: Image.asset('images/contact.png'),
                   ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  Expanded(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 15),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.blue, width: 0.7),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 0.7),
+                                  ),
+                                  labelText: 'Name',
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Expanded(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 15),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.blue, width: 0.7),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 0.7),
+                                  ),
+                                  labelText: 'Email',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      MyInputField(onchange: (_) {}),
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            RaisedButton(
+                              onPressed: () {},
+                              child: Text('Send'),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ))
                 ],
               ),
             )),
@@ -92,6 +160,13 @@ class ContactPage extends StatelessWidget {
                           IconButton(
                               icon: Icon(
                                 FontAwesomeIcons.twitter,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                              onPressed: () {}),
+                          IconButton(
+                              icon: Icon(
+                                FontAwesomeIcons.whatsapp,
                                 color: Colors.white,
                                 size: 20,
                               ),
