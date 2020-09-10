@@ -1,65 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:translation_website/presentation/core/const/images.dart';
+import 'package:translation_website/presentation/pages/landing_page/widgets/landing_text.dart';
+import 'package:translation_website/presentation/shared/layout_builder.dart';
 
 class HomePage extends StatelessWidget {
-  final Function() ontap;
-  const HomePage({Key key, this.ontap}) : super(key: key);
+  const HomePage({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30),
-      color: Color(0XFF746FFF),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Lorem ipsum is placeholder text',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+    return MyLayOutBuilder(
+      web: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30),
+        color: Color(0XFF746FFF),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            LandingText(
+              flex: 1,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              rowMainAxisAlignment: MainAxisAlignment.start,
+              onPress: () {},
+              textAlign: TextAlign.left,
+            ),
+            Expanded(
+              child: Image.asset(
+                translationImage,
               ),
-              SizedBox(
-                height: 15,
+            ),
+          ],
+        ),
+      ),
+      mobile: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30),
+        color: Color(0XFF746FFF),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 1,
+              child: Image.asset(
+                translationImage,
               ),
-              Container(
-                width: 450,
-                child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 200,
-                      height: 50,
-                      child: RaisedButton(
-                        color: Color(0XFF0F0E47),
-                        onPressed: ontap,
-                        child: Text(
-                          'Contatc us now',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Image.asset(
-            'images/vector.png',
-            width: 750,
-          ),
-        ],
+            ),
+            LandingText(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              rowMainAxisAlignment: MainAxisAlignment.center,
+              onPress: () {},
+              textAlign: TextAlign.center,
+              flex: 2,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,234 +1,200 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:translation_website/presentation/pages/landing_page/widgets/bottom_navbar.dart';
 import 'package:translation_website/presentation/pages/landing_page/widgets/my_input_field.dart';
+import 'package:translation_website/presentation/pages/landing_page/widgets/my_round_button.dart';
+import 'package:translation_website/presentation/pages/landing_page/widgets/shadow_text.dart';
+import 'package:translation_website/presentation/shared/layout_builder.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return MyLayOutBuilder(
+      web: Container(
         color: Colors.white,
         child: Column(
           children: [
+            ShadowTextTitle(
+              title: 'Contact us',
+              width: 260,
+              height: 80,
+            ),
             Expanded(
-                child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 35),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Image.asset('images/contact.png'),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Expanded(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 15),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.blue, width: 0.7),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 35),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset('images/contact.png'),
+                    ),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    Expanded(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.blue, width: 0.7),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black, width: 0.7),
+                                    ),
+                                    labelText: 'Name',
                                   ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.black, width: 0.7),
-                                  ),
-                                  labelText: 'Name',
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 15),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.blue, width: 0.7),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.blue, width: 0.7),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black, width: 0.7),
+                                    ),
+                                    labelText: 'Email',
                                   ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.black, width: 0.7),
-                                  ),
-                                  labelText: 'Email',
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      MyInputField(onchange: (_) {}),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            RaisedButton(
-                              onPressed: () {},
-                              child: Text('Send'),
-                            ),
-                          ],
+                        SizedBox(
+                          height: 15,
                         ),
-                      )
-                    ],
-                  ))
-                ],
+                        MyInputField(onchange: (_) {}),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              MyRoundButton(
+                                width: 150,
+                                height: 50,
+                                text: 'Send',
+                                onPress: () {},
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ))
+                  ],
+                ),
               ),
-            )),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 35, vertical: 5),
-              alignment: Alignment.bottomCenter,
-              height: 150,
-              color: Color(0XFF0F0E47),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 35,
-                            backgroundColor: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'Logo',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Copyright © 2020 Name\nAll rights reserved',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Address',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        '123 some street,\nBlock state\nContry',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                              icon: Icon(
-                                FontAwesomeIcons.facebookF,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              onPressed: () {}),
-                          IconButton(
-                              icon: Icon(
-                                FontAwesomeIcons.twitter,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              onPressed: () {}),
-                          IconButton(
-                              icon: Icon(
-                                FontAwesomeIcons.whatsapp,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              onPressed: () {}),
-                        ],
-                      )
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'For support',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'molotfy50@gmail.com',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            '01286603519',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'molotfy50@gmail.com',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            '01286603519',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.white,
-                    width: 300,
-                    height: 100,
-                  )
-                ],
-              ),
-            )
+            ),
+            BottomNavBar(),
           ],
-        ));
+        ),
+      ),
+      mobile: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            ShadowTextTitle(
+              title: 'Contact us',
+              width: 260,
+              height: 80,
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 35),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.blue, width: 0.7),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black, width: 0.7),
+                                    ),
+                                    labelText: 'Name',
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.blue, width: 0.7),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black, width: 0.7),
+                                    ),
+                                    labelText: 'Email',
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        MyInputField(onchange: (_) {}),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              MyRoundButton(
+                                width: 150,
+                                height: 50,
+                                text: 'Send',
+                                onPress: () {},
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ))
+                  ],
+                ),
+              ),
+            ),
+            BottomNavBar(),
+          ],
+        ),
+      ),
+    );
   }
 }
